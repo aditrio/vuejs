@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue js</title>
+</head>
+<body>
+    
+    <div id="app" >
+        <!-- if statement -->
+        <p v-if="check == 'ok'">{{halo}}</p>
+        <p v-else="check">{{halo2}}</p>
+
+        <!-- computed function -->
+        <p>{{a}} x {{b}} = {{sum}}</p>
+
+        <!-- methods function -->
+        <p>{{a}} + {{b}} = {{result}}</p>
+        <button v-on:click="sumProcess" >Process</button><br><br>
+
+        <!-- watch property -->
+        <input type="text" v-model="kilometers">Km
+        <input type="text" v-model="meters">M <br> <br>
+
+        <!-- v-model property -->
+        <p>text : {{text}}</p> <br>
+        <input type="text" v-model="text"><br><br>
+        <p style="white-space: pre-line;" >text: {{textarea}}</p><br>
+        <textarea v-model="textarea" cols="30" rows="10"></textarea><br>
+        <p>choose your hobbies : </p>
+        <label for="">Watching movie</label>
+        <input type="checkbox" v-model="checkbox" value="Watching movie"><br>
+        <label for="">Reading</label>
+        <input type="checkbox" v-model="checkbox" value="Reading"><br>
+        <label for="">Playing video game</label>
+        <input type="checkbox" v-model="checkbox" value="Playing video game"><br>
+        <br>
+        <p>your hobbies is : </p>
+        <ul>
+            <li v-for="i in checkbox">{{i}}</li>
+        </ul><br>
+
+        <!-- v-bind property -->
+        <p v-bind:style="style" >TEST</p>
+        
+        
+        <!-- event handler onclick -->
+        <button v-on:click="message = 'ini pesan dari click'" >click</button>
+        <button @click="message = 'ini pesan dari @click'" >@click</button>
+        <button @click="showAlert" >alertClick</button>
+        <br>
+        <p>{{message}}</p>
+
+        <!-- event handler keyup -->
+        <label for="">press enter</label>
+        <input type="text" v-on:keyup.enter="message = 'you pressed enter'">
+
+        
+
+        <br><br><br>
+    </div>
+
+
+
+
+
+
+</body>
+<script src="/assets/vendor/vue.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</html>
