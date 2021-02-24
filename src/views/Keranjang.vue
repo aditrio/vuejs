@@ -79,6 +79,36 @@
           </table>
         </div>
       </div>
+      <div class="row justify-content-end">
+        <div class="col-md-4">
+          <form v-on:submit.prevent>
+            <div class="form-group">
+              <label for="jumlah">Nama</label>
+              <input
+                required
+                placeholder="nama pemesan.."
+                type="text"
+                class="form-control"
+                v-model="checkout.nama"
+              />
+            </div>
+            <div class="form-group">
+              <label for="jumlah">No Meja</label>
+              <input
+                required
+                placeholder="0"
+                type="number"
+                class="form-control"
+                v-model="checkout.no_meja"
+              />
+            </div>
+
+            <button type="submit" @click="goCheckout" class="btn btn-primary">
+              <b-icon-cash /> Checkout
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -95,11 +125,35 @@ export default {
   data() {
     return {
       keranjang: [],
+      checkout: {},
     };
   },
   methods: {
     setData(data) {
       this.keranjang = data;
+    },
+    goCheckout() {
+      if (this.checkout.nama && this.checkout.no_meja) {
+        this.checkout.order = this.keranjang;
+        axios
+          .post("http://localhost:3000/pesanans/", this.checkout)
+          .then(() => {
+            this.keranjang.map(function (item) {
+              return axios
+                .delete("http://localhost:3000/keranjangs/" + item.id)
+                .catch((err) => console.log(err));
+            });
+            this.$toast.success("Thankss !!", {
+              dismissible: true,
+              position: "top-right",
+              type: "success",
+              duration: 4000,
+            });
+
+            this.$router.push({ name: "sukses" });
+          })
+          .catch((error) => console.log(error));
+      }
     },
     deleteData(id) {
       axios.delete("http://localhost:3000/keranjangs/" + id).then(() => {

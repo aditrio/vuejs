@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Foods from '../views/Foods.vue'
 import FoodDetail from "../views/FoodDetail.vue"
 import Keranjang from "../views/Keranjang.vue"
+import Sukses from "../views/Sukses.vue"
+
 
 
 Vue.use(VueRouter)
@@ -13,6 +15,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/sukses',
+    name: 'sukses',
+    component: Sukses
   },
   {
     path: '/foods',
