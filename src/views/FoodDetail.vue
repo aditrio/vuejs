@@ -88,7 +88,10 @@ export default {
       if (this.order.jumlah) {
         this.order.product = this.product;
         axios
-          .post("http://localhost:3000/keranjangs/", this.order)
+          .post(
+            "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/",
+            this.order
+          )
           .then(() => {
             this.$toast.success("Added to Cart !!", {
               dismissible: true,
@@ -112,7 +115,10 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:3000/products/" + this.$route.params.id)
+      .get(
+        "https://my-json-server.typicode.com/aditrio/vue-db/products/" +
+          this.$route.params.id
+      )
       .then((response) => this.setProduct(response.data))
       .catch((error) => console.log(error));
   },

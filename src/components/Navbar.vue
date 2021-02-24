@@ -55,7 +55,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/keranjangs")
+      .get("https://my-json-server.typicode.com/aditrio/vue-db/keranjangs")
       .then((response) => this.setData(response.data))
       .catch((err) => console.log(err));
   },

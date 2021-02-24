@@ -136,11 +136,17 @@ export default {
       if (this.checkout.nama && this.checkout.no_meja) {
         this.checkout.order = this.keranjang;
         axios
-          .post("http://localhost:3000/pesanans/", this.checkout)
+          .post(
+            "https://my-json-server.typicode.com/aditrio/vue-db/pesanans/",
+            this.checkout
+          )
           .then(() => {
             this.keranjang.map(function (item) {
               return axios
-                .delete("http://localhost:3000/keranjangs/" + item.id)
+                .delete(
+                  "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/" +
+                    item.id
+                )
                 .catch((err) => console.log(err));
             });
             this.$toast.success("Thankss !!", {
@@ -156,24 +162,30 @@ export default {
       }
     },
     deleteData(id) {
-      axios.delete("http://localhost:3000/keranjangs/" + id).then(() => {
-        this.$toast.error("Berhasil dihapus", {
-          dismissible: true,
-          position: "top-right",
-          type: "error",
-          duration: 4000,
-        });
+      axios
+        .delete(
+          "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/" + id
+        )
+        .then(() => {
+          this.$toast.error("Berhasil dihapus", {
+            dismissible: true,
+            position: "top-right",
+            type: "error",
+            duration: 4000,
+          });
 
-        axios
-          .get("http://localhost:3000/keranjangs/")
-          .then((response) => this.setData(response.data))
-          .catch((error) => console.log(error));
-      });
+          axios
+            .get(
+              "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/"
+            )
+            .then((response) => this.setData(response.data))
+            .catch((error) => console.log(error));
+        });
     },
   },
   mounted() {
     axios
-      .get("http://localhost:3000/keranjangs")
+      .get("https://my-json-server.typicode.com/aditrio/vue-db/keranjangs")
       .then((response) => this.setData(response.data))
       .catch((err) => console.log(err));
   },
