@@ -137,14 +137,14 @@ export default {
         this.checkout.order = this.keranjang;
         axios
           .post(
-            "https://my-json-server.typicode.com/aditrio/vue-db/pesanans/",
+            "https://my-json-server.typicode.com/aditrio/vue-db/pesanans",
             this.checkout
           )
           .then(() => {
             this.keranjang.map(function (item) {
               return axios
                 .delete(
-                  "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/" +
+                  "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs" +
                     item.id
                 )
                 .catch((err) => console.log(err));
@@ -176,7 +176,7 @@ export default {
 
           axios
             .get(
-              "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/"
+              "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs"
             )
             .then((response) => this.setData(response.data))
             .catch((error) => console.log(error));

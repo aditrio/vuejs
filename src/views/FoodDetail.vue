@@ -89,7 +89,7 @@ export default {
         this.order.product = this.product;
         axios
           .post(
-            "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs/",
+            "https://my-json-server.typicode.com/aditrio/vue-db/keranjangs",
             this.order
           )
           .then(() => {
