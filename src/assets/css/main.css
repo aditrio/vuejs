@@ -23,3 +23,7 @@
     object-fit: cover;
     max-height: 200px;
 }
+
+.img-fluid {
+    border-radius: 15px;
+}

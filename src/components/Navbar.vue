@@ -26,7 +26,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/keranjang">
               Keranjang <b-icon-cart />
-              <span class="badge badge-success ml-1">0</span></router-link
+              <span class="badge badge-success ml-1">{{
+                update ? update.length : keranjangs.length
+              }}</span></router-link
             >
           </li>
         </ul>
@@ -36,8 +38,27 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Navbar",
+  data() {
+    return {
+      keranjangs: [],
+    };
+  },
+  props: ["update"],
+  methods: {
+    setData(data) {
+      this.keranjangs = data;
+    },
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/keranjangs")
+      .then((response) => this.setData(response.data))
+      .catch((err) => console.log(err));
+  },
 };
 </script>
 
