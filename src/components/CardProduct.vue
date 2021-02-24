@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card card-product shadow mb-2" style="width: 100%">
+    <div class="card card-product shadow mb-4" style="width: 100%">
       <img :src="'img/' + product.gambar" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ product.nama }}</h5>

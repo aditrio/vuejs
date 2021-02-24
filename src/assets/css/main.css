@@ -4,6 +4,7 @@
 
 .bg-primary {
     background-color: #63C3FF !important;
+    border-color: #63C3FF !important;
 }
 
 .btn-primary {
@@ -19,4 +20,6 @@
 .card-img-top {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
+    object-fit: cover;
+    max-height: 200px;
 }

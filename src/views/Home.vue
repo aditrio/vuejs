@@ -9,7 +9,9 @@
                 <b>Delicious Food Menu,</b> <br />
                 in Your Gadget
               </h3>
-              <button class="btn btn-sm btn-primary">Order Now</button>
+              <router-link to="/foods" class="btn btn-sm btn-primary"
+                >Order Now</router-link
+              >
             </div>
           </div>
         </div>
